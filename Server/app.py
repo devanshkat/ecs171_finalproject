@@ -21,7 +21,11 @@ def predict():
         minutes = float(request.form.get("minutes"))
         happiness = float(request.form.get("happiness"))
         processed_data = scaler.transform([[age, minutes, happiness]])
-        prediction = linear_model.predict(processed_data)
+        prediction = linear_model.predict(processed_data)[0][0].round()
+        if prediction < 1:
+            prediction = 1
+        elif prediction > 10:
+            prediction = 10
         return render_template("result.html", prediction=prediction)
     else:
         return "Invalid request method"

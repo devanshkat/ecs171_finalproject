@@ -2,9 +2,7 @@ from sklearn.model_selection import train_test_split
 import pandas as pd
 import joblib
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error
-from sklearn.metrics import r2_score
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 
 df = pd.read_csv('instagram_usage_lifestyle.csv')
 
@@ -16,6 +14,7 @@ features = [
 target = ['perceived_stress_score']
 
 scaler = StandardScaler()
+minmax = MinMaxScaler(feature_range=(1,10))
 
 df = df[df['country'] == 'United States']
 
@@ -33,6 +32,7 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 X_train = scaler.fit_transform(X_train)
 X_test = scaler.transform(X_test)
+y_train = minmax.fit_transform(y_train)
 
 # Linear regression model
 linearModel = LinearRegression()
