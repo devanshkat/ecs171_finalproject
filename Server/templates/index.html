@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stress Predictor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+</head>
+<body>
+    <h1>Instagram Lifestyle & Stress Predictor</h1>
+    <p>Enter your details below to estimate your perceived stress score.</p>
+    
+    <form action="/predict" method="post">
+        <label for="age">Age:</label>
+        <input type="number" id="age" name="age" required min="13" max="65" value="20">
+
+        <label for="minutes">Daily Instagram Minutes:</label>
+        <input type="number" id="minutes" name="minutes" required min="0" max="1440" value="30">
+
+        <label for="happiness">Self-Reported Happiness (1-10):</label>
+        <input type="number" id="happiness" name="happiness" required min="1" max="10" value="5">
+
+        <button type="submit">Predict Stress Score</button>
+    </form>
+</body>
+</html>
