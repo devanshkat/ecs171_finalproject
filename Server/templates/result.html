@@ -4,17 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Prediction Result</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;    
+            justify-content: center; 
+            min-height: 100vh;      
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;     
+            background-color: #ececec;
+            color: #142d4c;
+        }
+
+        h1 {
+            color: #142d4c;
+            margin-bottom: 20px;
+        }
+
+        .result-card {
+            background-color: #9fd3c7;
+            padding: 40px;
+            border-radius: 12px;
+            border: 2px solid #385170;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            width: 300px;
+        }
+
+        .score-label {
+            color: #385170;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        .score-value {
+            color: #142d4c;
+            font-size: 3.5rem;
+            margin: 10px 0;
+        }
+
+        .back-link {
+            margin-top: 30px;
+            text-decoration: none;
+            color: #385170;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: #142d4c;
+        }
+    </style>
 </head>
 <body>
     <h1>Your Prediction</h1>
     
-    <div style="background-color: #f0f0f0; padding: 20px; border-radius: 8px; text-align: center;">
-        <h2>Estimated Stress Score:</h2>
-        <h1 style="color: #007bff;">{{ prediction | round(2) }}</h1>
+    <div class="result-card">
+        <p class="score-label">Estimated Stress Score</p>
+        <h1 class="score-value">{{ prediction | round(2) }}</h1>
     </div>
 
-    <br>
-    <a href="/">← Go Back</a>
+    <a href="/" class="back-link">← Go Back</a>
 </body>
 </html>

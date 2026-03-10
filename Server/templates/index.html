@@ -4,23 +4,106 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stress Predictor</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;    
+            justify-content: center; 
+            min-height: 75vh;      
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-align: center;     
+            background-color: #ececec;
+            color: #142d4c;
+        }
+
+        h1 {
+            color: #142d4c;
+            margin-bottom: 10px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;    
+            gap: 20px;              
+            padding: 40px;
+            background-color: #ffffff;
+            border: 2px solid #385170;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 20px;
+        }
+
+        label {
+            font-weight: 600;
+            color: #385170;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            display: block;
+            padding: 10px;
+            width: 250px;
+            font-size: 14px;
+            border: 2px solid #9fd3c7;
+            border-radius: 6px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #385170;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 15px;
+            padding: 12px 20px;
+            cursor: pointer;
+            background-color: #142d4c;
+            color: #ececec;
+            border: none;
+            border-radius: 6px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #385170;
+        }
+
+        .container {
+            max-width: 400px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Instagram Lifestyle & Stress Predictor</h1>
-    <p>Enter your details below to estimate your perceived stress score.</p>
-    
-    <form action="/predict" method="post">
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required min="13" max="65" value="20">
+    <div class="container">
+        <h1>Instagram Stress Predictor</h1>
+        
+        <form action="/predict" method="post">
+            <div>
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" required min="13" max="65" value="20">
+            </div>
 
-        <label for="minutes">Daily Instagram Minutes:</label>
-        <input type="number" id="minutes" name="minutes" required min="0" max="1440" value="30">
+            <div>
+                <label for="minutes">Daily Instagram Minutes</label>
+                <input type="number" id="minutes" name="minutes" required min="0" max="1440" value="30">
+            </div>
 
-        <label for="happiness">Self-Reported Happiness (1-10):</label>
-        <input type="number" id="happiness" name="happiness" required min="1" max="10" value="5">
+            <div>
+                <label for="happiness">Self-Reported Happiness (1-10)</label>
+                <input type="number" id="happiness" name="happiness" required min="1" max="10" value="5">
+            </div>
 
-        <button type="submit">Predict Stress Score</button>
-    </form>
+            <button type="submit">Predict Stress Score</button>
+        </form>
+    </div>
 </body>
 </html>
