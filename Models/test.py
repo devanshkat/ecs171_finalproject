@@ -86,7 +86,7 @@ print("Random Forest test stats:")
 print(f"Stress MSE {mse_rf[0]} and Stress R2 = {r2_rf[0]}")
 print(f"RMSE: {np.sqrt(mse_rf[0])}")
 
-xgb_estimator = xgb.XGBRegressor(objective='reg:squarederror', booster='dart', learning_rate = 0.1, max_depth = 5, min_child_weight = 3, n_estimators = 100, rate_drop = 0.1, reg_alpha = 0, reg_lambda = 1, subsample = 1.0, random_state=42)
+xgb_estimator = xgb.XGBRegressor(objective='reg:squarederror', booster='dart', learning_rate = 0.1, max_depth = 5, min_child_weight = 1, n_estimators = 100, rate_drop = 0.1, reg_alpha = 0, reg_lambda = 1, subsample = 1.0, random_state=42)
 xgb_estimator.fit(X_train_nonpoly, y_train)
 
 y_train_pred = xgb_estimator.predict(X_train_nonpoly)
