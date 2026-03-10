@@ -34,6 +34,8 @@ X = data[features]
 y = data[target]
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+X_train_og = X_train
+
 y_train = y_train.values.reshape(-1,1)
 y_test = y_test.values.reshape(-1,1)
 
@@ -103,6 +105,7 @@ print(f"RMSE: {np.sqrt(mean_squared_error(y_test, y_test_pred))}")
 print(f"MSE: {mean_squared_error(y_test, y_test_pred)}")
 print(f"R² Score: {r2_score(y_test, y_test_pred)}\n")
 
+X_train_og.to_csv('training.csv')
 joblib.dump(model, 'poly_regression.joblib')
 joblib.dump(rfmodel, 'randomforest.joblib')
 joblib.dump(xgb_estimator, 'xgboost.joblib')
